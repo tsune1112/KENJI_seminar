@@ -11,7 +11,7 @@
         :root {
             --color-bg: #0a0a0a;
             --color-card: #1a1a1a;
-            --color-slate: #a0a0a0;
+            --color-slate: #c0c0c0;
             --color-light-slate: #e0e0e0;
             --color-gold: #d4af37;
             --font-sans: 'Noto Sans JP', sans-serif;
@@ -32,7 +32,7 @@
             background-color: var(--color-bg);
             color: var(--color-slate);
             font-family: var(--font-sans);
-            line-height: 1.9;
+            line-height: 1.8;
             font-size: 17px;
             overflow-x: hidden;
         }
@@ -115,6 +115,49 @@
             color: #fff;
         }
 
+        /* Header */
+        .main-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #222;
+        }
+        .main-nav {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .main-nav a {
+            color: var(--color-light-slate);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .main-nav a:hover {
+            color: var(--color-gold);
+        }
+        .main-nav a.nav-cta {
+            background-color: var(--color-gold);
+            color: #000;
+            padding: 8px 18px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        .main-nav a.nav-cta:hover {
+            color: #000;
+            filter: brightness(1.1);
+        }
+
         /* 1. First View */
         .hero {
             position: relative;
@@ -190,6 +233,27 @@
             font-size: 1.1rem;
             color: var(--color-light-slate);
             text-align: center;
+        }
+
+        /* Diagram */
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        .flow-box {
+            background-color: var(--color-card);
+            border: 1px solid #333;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: var(--color-light-slate);
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--color-gold);
         }
 
         /* 3. List-based sections */
@@ -301,6 +365,11 @@
             text-decoration: line-through;
         }
 
+        /* Floating CTA */
+        .floating-cta {
+            display: none;
+        }
+
         /* Animation */
         .reveal-on-scroll {
             opacity: 0;
@@ -314,12 +383,19 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            body { font-size: 16px; }
+            body { 
+                font-size: 16px; 
+                padding-bottom: 90px;
+            }
             .container { padding: 80px 20px; }
             h2 { font-size: 2rem; }
             .hero h1 { font-size: 2.5rem; }
             .hero .subtitle { font-size: 1.2rem; }
             .hero .info span { display: block; margin: 10px 0; }
+
+            .main-header {
+                display: none;
+            }
             
             .instructor-profile { grid-template-columns: 1fr; text-align: center; }
             .instructor-profile .photo-main {
@@ -329,10 +405,50 @@
             }
             .gallery-grid { grid-template-columns: 1fr; }
             .details-grid { grid-template-columns: 1fr; gap: 15px; }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .floating-cta {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.9);
+                padding: 15px;
+                z-index: 1000;
+                text-align: center;
+                border-top: 1px solid #333;
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+            .floating-cta .cta-button {
+                width: 90%;
+                padding: 15px;
+                font-size: 1.1rem;
+                background-color: var(--color-gold);
+                color: #000;
+            }
         }
     </style>
 </head>
 <body>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="#overview">セミナー概要</a>
+            <a href="#learn">学べること</a>
+            <a href="#instructor">講師紹介</a>
+            <a href="#faq">よくある質問</a>
+            <a href="#details" class="nav-cta">申し込む</a>
+        </nav>
+    </header>
 
     <header class="hero">
         <p class="seminar-type">パーソナルトレーナー向け 実技セミナー</p>
@@ -362,23 +478,30 @@
             </div>
         </section>
 
-        <section>
+        <section id="overview">
             <div class="container">
                 <h2 class="text-center reveal-on-scroll">セミナー概要</h2>
                 <p class="reveal-on-scroll text-center" style="max-width: 650px; margin-left: auto; margin-right: auto;">本セミナーは、クライアント自身が能動的に動く「エクササイズ」を通じて上半身の機能を再構築する、現場特化型のプログラムです。現代のライフスタイルが引き起こす肩甲帯の機能不全に対し、バイオメカニクスに基づいた的確な評価（アセスメント）を実施。その結果から、モビリティの回復、モーターコントロールの再教育、そしてエキセントリック負荷を用いた強化まで、明日からすぐにお客様へ処方できる再現性の高いトレーニングプロトコルをお伝えします。</p>
+                <div class="flow-diagram reveal-on-scroll">
+                    <div class="flow-box">評価</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">論理的アプローチ</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">エクササイズ処方</div>
+                </div>
             </div>
         </section>
 
-        <section>
+        <section id="learn">
             <div class="container">
                 <h2 class="text-center reveal-on-scroll">本セミナーで学べること</h2>
                 <div class="transformation-list reveal-on-scroll" style="max-width: 600px; margin: 0 auto;">
                     <ul>
-                        <li>**上肢帯のバイオメカニクス**：脊柱・胸郭・肩甲骨・上腕骨の正しい連動と、痛みを防ぐ運動連鎖のメカニズム。</li>
-                        <li>**エラーを見抜くアセスメント**：代償動作（翼状肩甲、肩の早期すくみ、腰椎過伸展など）を特定する動的評価法。</li>
-                        <li>**アクティブ・モビリティドリル**：クライアント自身で過緊張を解き、胸郭と肩甲帯の可動性を引き出す準備エクササイズ。</li>
-                        <li>**モーターコントロールの再教育**：正しい関節の軌道を脳と体に再学習させる低負荷コントロール種目の実践。</li>
-                        <li>**機能的強化と統合トレーニング**：代償を防ぎながら全身の連動性を高める統合種目の実施。</li>
+                        <li><strong>上肢帯のバイオメカニクス</strong>：脊柱・胸郭・肩甲骨・上腕骨の正しい連動と、痛みを防ぐ運動連鎖のメカニズム。</li>
+                        <li><strong>エラーを見抜くアセスメント</strong>：代償動作（翼状肩甲、肩の早期すくみ、腰椎過伸展など）を特定する動的評価法。</li>
+                        <li><strong>アクティブ・モビリティドリル</strong>：クライアント自身で過緊張を解き、胸郭と肩甲帯の可動性を引き出す準備エクササイズ。</li>
+                        <li><strong>モーターコントロールの再教育</strong>：正しい関節の軌道を脳と体に再学習させる低負荷コントロール種目の実践。</li>
+                        <li><strong>機能的強化と統合トレーニング</strong>：代償を防ぎながら全身の連動性を高める統合種目の実施。</li>
                     </ul>
                 </div>
                 <div class="cta-button-container reveal-on-scroll">
@@ -387,7 +510,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="goals">
             <div class="container">
                 <h2 class="text-center reveal-on-scroll">セミナーの到達目標</h2>
                 <div class="transformation-list reveal-on-scroll" style="max-width: 600px; margin: 0 auto;">
@@ -400,7 +523,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="target">
             <div class="container">
                 <h2 class="text-center reveal-on-scroll">こんなトレーナーにおすすめです</h2>
                 <div class="target-list reveal-on-scroll" style="max-width: 600px; margin: 0 auto;">
@@ -414,7 +537,7 @@
             </div>
         </section>
 
-        <section class="instructor-section">
+        <section id="instructor" class="instructor-section">
             <div class="container">
                 <h2 class="text-center reveal-on-scroll">講師紹介</h2>
                 <div class="instructor-profile reveal-on-scroll">
@@ -436,7 +559,7 @@
             </div>
         </section>
         
-        <section class="faq-section">
+        <section id="faq" class="faq-section">
             <div class="container" style="max-width: 750px;">
                 <h2 class="text-center reveal-on-scroll">よくある質問</h2>
                 <div class="faq-item reveal-on-scroll">
