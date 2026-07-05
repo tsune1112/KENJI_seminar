@@ -235,9 +235,10 @@
         .instructor-profile .photo-main {
             flex-basis: 300px;
             flex-shrink: 0;
-        }
-        .instructor-profile .photo-main img {
-            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-image: url("instructor-photo-1.jpeg");
+            background-size: cover;
+            background-position: center;
             border-radius: 8px;
             border: 2px solid var(--color-gold);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
