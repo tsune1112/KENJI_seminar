@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コレクティブエクササイズの新常識 - 肩甲帯・上肢編</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #000000;
+            --color-card: #111111;
+            --color-slate: #8892b0;
+            --color-light-slate: #ccd6f6;
+            --color-gold: #d4af37;
+            --font-sans: 'Noto Sans JP', sans-serif;
+            --font-display: 'Oswald', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-light-slate);
+            font-family: var(--font-sans);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 0;
+        }
+
+        section {
+            border-bottom: 1px solid #222;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            color: var(--color-gold);
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--color-slate);
+        }
+        
+        strong {
+            color: var(--color-light-slate);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .cta-button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-gold);
+            color: var(--color-bg);
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            margin: 10px;
+            border: 2px solid var(--color-gold);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button.early-bird {
+            background-color: #ff5722;
+            border-color: #ff5722;
+            color: #fff;
+        }
+        .cta-button.early-bird:hover {
+             background-color: #e64a19;
+        }
+
+        /* 1. First View */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+        }
+        .hero .seminar-type, .hero h1, .hero .subtitle, .hero .sub-copy, .hero .info, .hero .cta-button-container {
+            opacity: 0;
+            animation: fadeInSlideUp 1s forwards;
+        }
+        .hero h1 { animation-delay: 0.2s; }
+        .hero .subtitle { animation-delay: 0.4s; }
+        .hero .sub-copy { animation-delay: 0.6s; }
+        .hero .info { animation-delay: 0.8s; }
+        .hero .cta-button-container { animation-delay: 1s; }
+
+        .hero .seminar-type {
+            font-size: 1.2rem;
+            color: var(--color-gold);
+            letter-spacing: 2px;
+        }
+        .hero h1 {
+            font-size: 4.5rem;
+            color: #fff;
+            margin: 10px 0;
+        }
+        .hero .subtitle {
+            font-size: 2rem;
+            font-family: var(--font-display);
+            color: var(--color-gold);
+        }
+        .hero .sub-copy {
+            font-size: 1.5rem;
+            color: var(--color-light-slate);
+            margin-top: 20px;
+            max-width: 700px;
+        }
+        .hero .info {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: var(--color-light-slate);
+        }
+        .hero .info span {
+            margin: 0 15px;
+        }
+
+        /* 2. Problem Section */
+        .problem-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .problem-list li {
+            background-color: var(--color-card);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--color-gold);
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: var(--color-light-slate);
+        }
+        .problem-list li::before {
+            content: "▶";
+            color: var(--color-gold);
+            margin-right: 10px;
+        }
+
+        /* 3. Catch & 4. Concept */
+        .highlight-box {
+            background-color: var(--color-card);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
+        }
+        .highlight-box .emphasis {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* 6. Instructor */
+        .instructor-section {
+            position: relative;
+            background-image: url("けんじ写真２.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .instructor-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1;
+        }
+        .instructor-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .instructor-profile {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .instructor-profile .photo-main {
+            flex-basis: 300px;
+            flex-shrink: 0;
+        }
+        .instructor-profile .photo-main img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid var(--color-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .instructor-profile .text {
+            flex: 1;
+        }
+
+        /* 7. Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .benefit-item {
+            background-color: var(--color-card);
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .benefit-item h3 {
+            color: var(--color-gold);
+            text-align: left;
+            font-size: 1.5rem;
+        }
+
+        /* 8. Seminar Content */
+        .steps-container {
+            position: relative;
+        }
+        .step {
+            background-color: var(--color-card);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 60px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .step .step-number {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-gold);
+            color: var(--color-bg);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 4px solid var(--color-bg);
+            transition: transform 0.3s;
+        }
+        .step:hover .step-number {
+            transform: translateY(-50%) rotate(10deg) scale(1.1);
+        }
+        .step h3 {
+            text-align: left;
+            font-size: 1.5rem;
+            color: var(--color-gold);
+        }
+
+        /* 9. Transformation */
+        .transformation-list ul, .target-list ul {
+            list-style: none;
+        }
+        .transformation-list li, .target-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--color-light-slate);
+        }
+        .transformation-list li::before, .target-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+            font-weight: bold;
+        }
+        .emphasis-copy {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px solid var(--color-gold);
+            border-radius: 8px;
+            background: var(--color-card);
+        }
+
+        /* 10. Target Audience */
+        .target-note {
+            text-align: center;
+            margin-top: 30px;
+            background-color: var(--color-card);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* 11. Details */
+        .details-card {
+            background-color: var(--color-card);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .details-card h2 {
+            margin-bottom: 30px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        .details-grid dt {
+            font-weight: 700;
+            color: var(--color-gold);
+        }
+        .details-grid dd {
+            font-size: 1.1rem;
+            color: var(--color-light-slate);
+        }
+        .price {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .price .early {
+            font-size: 1.8rem;
+            color: #ff5722;
+            font-weight: 700;
+        }
+        .price .normal {
+            font-size: 1.1rem;
+            color: var(--color-slate);
+            text-decoration: line-through;
+        }
+        .price .note {
+            font-size: 0.9rem;
+            color: var(--color-slate);
+        }
+
+        /* 12. Final CTA */
+        .final-cta {
+            background-color: var(--color-card);
+        }
+
+        /* Animation Styles */
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-child {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible .reveal-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .container { padding: 80px 20px; }
+            h2 { font-size: 2.2rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero .subtitle { font-size: 1.5rem; }
+            .hero .sub-copy { font-size: 1.2rem; }
+            .hero .info span { display: block; margin: 5px 0; }
+            
+            .instructor-section { background-attachment: scroll; }
+            .instructor-profile { flex-direction: column; text-align: center; }
+
+            .benefits-grid { grid-template-columns: 1fr; }
+            .step { padding: 20px; padding-left: 20px; margin-left: 30px; }
+            .step .step-number { width: 60px; height: 60px; font-size: 1.2rem; left: -30px; }
+            .details-grid { grid-template-columns: 1fr; gap: 10px; }
+            .details-grid dt { margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ファーストビュー -->
+    <header class="hero">
+        <p class="seminar-type">パーソナルトレーナー向け 実技セミナー</p>
+        <h1>コレクティブエクササイズの新常識</h1>
+        <p class="subtitle">肩甲帯・上肢編</p>
+        <p class="sub-copy">エラー動作を見つけるだけで終わらせない。<br>構造から原因を見立て、修正し、再評価できるトレーナーへ。</p>
+        <div class="info">
+            <span><strong>日時:</strong> 8月1日(土) 14:00-18:00</span>
+            <span><strong>会場:</strong> コネクトジム鶴舞店</span>
+        </div>
+        <div class="cta-button-container">
+            <a href="#details" class="cta-button early-bird">早割で申し込む</a>
+            <a href="#details" class="cta-button">今すぐ申し込む</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. 顧客の悩みを浮き彫りにするセクション -->
+        <section class="problem-section">
+            <div class="container">
+                <h2 class="reveal-on-scroll">こんな悩みはありませんか？</h2>
+                <div class="problem-list reveal-on-scroll">
+                    <ul>
+                        <li class="reveal-child">エラー動作は見える。でも、その原因が何なのか分からない。</li>
+                        <li class="reveal-child">肩甲骨や上腕骨の動きを見ているつもりでも、修正方法がワンパターンになる。</li>
+                        <li class="reveal-child">ベンチプレス、プル動作、ショルダープレスなどでフォーム修正の根拠を説明しきれない。</li>
+                        <li class="reveal-child">可動域改善や姿勢改善を、ボディメイク指導にどうつなげるか迷う。</li>
+                        <li class="reveal-child">その場では変化が出ても、次回以降に再現できる指導になっているか不安がある。</li>
+                        <li class="reveal-child">クライアントに「なぜこのエクササイズをするのか」を自信を持って説明できない。</li>
+                    </ul>
+                </div>
+                <p class="text-center reveal-on-scroll" style="margin-top: 40px; font-size: 1.2rem; color: #fff;">もし一つでも当てはまるなら、このセミナーはあなたのためのものです。</p>
+            </div>
+        </section>
+
+        <!-- 3. 課題感をキャッチするセクション -->
+        <section>
+            <div class="container text-center">
+                <h2 class="reveal-on-scroll">問題は、エクササイズの数ではなく<br>「選ぶ基準」が曖昧なこと。</h2>
+                <p class="reveal-on-scroll">修正エクササイズをたくさん知っていても、どの評価結果に対して、どのエクササイズを選ぶべきかが曖昧なままでは、指導は感覚的になってしまいます。</p>
+                <p class="reveal-on-scroll">大切なのは、種目の数を増やすことではありません。</p>
+                <div class="highlight-box reveal-on-scroll">
+                    <p>どこを評価し、<br>
+                    なぜそのエラーが起きているのかを整理し、<br>
+                    どの順番で修正し、<br>
+                    介入後に何を再評価するのか。</p>
+                    <p style="margin-bottom: 0;">この一連の流れを持つことで、指導はその場限りではなく、再現性のあるものに変わります。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. セミナーコンセプトの提示 -->
+        <section>
+            <div class="container text-center">
+                <h2 class="reveal-on-scroll">このセミナーのコンセプト</h2>
+                <p class="reveal-on-scroll">このセミナーは、肩甲帯・上肢のコレクティブエクササイズを、単なる「修正種目」として学ぶのではなく、評価・原因特定・エクササイズ選択・再評価までを一連の流れとして学ぶ実技セミナーです。</p>
+                <p class="reveal-on-scroll">身体の構造を理解し、動きの中でエラーを観察し、原因を見立て、クライアントに合わせた修正エクササイズを選択する。明日の現場でそのまま使える判断基準と実践手順を身につけることを目的とします。</p>
+                <div class="highlight-box reveal-on-scroll">
+                    <span class="emphasis">エクササイズを覚えるセミナーではなく、<br>エクササイズを選べるようになるセミナーです。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. なぜこのセミナーを受けるべきか -->
+        <section>
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">なぜ今、コレクティブエクササイズを<br>学び直すべきなのか</h2>
+                <p class="reveal-on-scroll">近年、トレーニング指導では単に鍛えるだけでなく、姿勢、関節可動域、動作の質、代償動作、痛みの予防までを含めた指導が求められています。</p>
+                <p class="reveal-on-scroll">しかし現場では、「とりあえず肩甲骨を動かす」「とりあえずストレッチを入れる」「とりあえずチューブで外旋する」といった、パターン化された修正になりやすいのも事実です。</p>
+                <p class="reveal-on-scroll" style="font-weight: 700; color: #fff; font-size: 1.2rem;">本当に必要なのは、クライアントごとに違う問題を評価し、その人に必要な修正を選択できる力です。</p>
+                <p class="reveal-on-scroll">このセミナーでは、肩甲帯・上肢を題材に、評価から修正、再評価までの流れを実践形式で学ぶことで、現場での指導精度を高めます。</p>
+            </div>
+        </section>
+
+        <!-- 6. 講師がこのセミナーをする意義 -->
+        <section class="instructor-section">
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">なぜ吉田憲治先生が<br>このテーマを伝えるのか</h2>
+                <div class="instructor-profile reveal-on-scroll">
+                    <div class="photo-main">
+                        <img src="けんじ写真１.jpeg" alt="吉田憲治先生">
+                    </div>
+                    <div class="text">
+                        <p><strong>吉田憲治先生</strong>は、パーソナルトレーニングジムNIM代表として、姿勢改善、ボディメイク、競技パフォーマンス向上など、幅広い目的に合わせた指導を行ってきました。</p>
+                        <p>年間1,500件以上のセッションを担当し、トレーナー育成や店舗開発にも携わってきた経験から、単に知識を伝えるだけでなく、現場で使える形に落とし込む指導に強みがあります。</p>
+                        <p>また、国内外で学び続け、人体解剖実習にも参加し、筋肉や関節、組織の構造を実際に見て学んできた経験があるからこそ、「なぜこのフォームで狙った部位に入るのか」「どこがズレると代償が起きるのか」を、現場で使える言葉と実技に変換して伝えることができます。</p>
+                    </div>
+                </div>
+                 <p class="reveal-on-scroll" style="margin-top: 20px;">このセミナーでは、吉田先生が現場で積み上げてきた構造理解、評価、修正エクササイズの考え方を、明日から使える実践手順として学びます。</p>
+            </div>
+        </section>
+
+        <!-- 7. このセミナーで身につくこと -->
+        <section>
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">この4時間で身につくこと</h2>
+                <div class="benefits-grid reveal-on-scroll">
+                    <div class="benefit-item reveal-child">
+                        <h3>1. 評価力</h3>
+                        <p>肩甲帯・上肢の動きを、構造と動作の両面から評価できるようになる。</p>
+                    </div>
+                    <div class="benefit-item reveal-child">
+                        <h3>2. 原因の特定</h3>
+                        <p>エラー動作に対して、可動域、安定性、筋出力、運動制御のどこに問題があるのかを整理できるようになる。</p>
+                    </div>
+                    <div class="benefit-item reveal-child">
+                        <h3>3. 修正エクササイズの選択</h3>
+                        <p>クライアントの状態に合わせて、必要な修正エクササイズを選べるようになる。</p>
+                    </div>
+                    <div class="benefit-item reveal-child">
+                        <h3>4. 再現性のある指導</h3>
+                        <p>評価、介入、再評価の流れを使い、結果を確認しながら指導できるようになる。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. セミナー内容 -->
+        <section>
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">セミナーで学べること</h2>
+                <div class="steps-container reveal-on-scroll">
+                    <div class="step reveal-child">
+                        <div class="step-number">STEP 1</div>
+                        <h3>構造を理解する</h3>
+                        <p>肩甲帯・上肢の動きを、骨格、関節、筋、胸郭との関係から整理する。</p>
+                    </div>
+                    <div class="step reveal-child">
+                        <div class="step-number">STEP 2</div>
+                        <h3>動きを評価する</h3>
+                        <p>代表動作やエラー動作を観察し、どこに代償が起きているのかを確認する。</p>
+                    </div>
+                    <div class="step reveal-child">
+                        <div class="step-number">STEP 3</div>
+                        <h3>原因を見立てる</h3>
+                        <p>可動域、安定性、筋出力、運動制御の観点から、問題の本質を整理する。</p>
+                    </div>
+                    <div class="step reveal-child">
+                        <div class="step-number">STEP 4</div>
+                        <h3>修正して再評価する</h3>
+                        <p>評価結果に合わせてエクササイズを選び、介入後の変化を再評価する。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. 受講後にどうなるか -->
+        <section>
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">受講後、あなたの指導はこう変わる</h2>
+                <div class="transformation-list reveal-on-scroll">
+                    <ul>
+                        <li class="reveal-child">エラー動作を見つけるだけでなく、原因まで考えられるようになる。</li>
+                        <li class="reveal-child">修正エクササイズを感覚ではなく、評価結果から選べるようになる。</li>
+                        <li class="reveal-child">クライアントに「なぜこのエクササイズが必要なのか」を説明できるようになる。</li>
+                        <li class="reveal-child">その場限りではなく、再評価まで含めた指導ができるようになる。</li>
+                        <li class="reveal-child">ボディメイク種目のフォーム修正にも、機能解剖の視点を組み込めるようになる。</li>
+                        <li class="reveal-child">指導の説得力と再現性が高まる。</li>
+                    </ul>
+                </div>
+                <div class="emphasis-copy reveal-on-scroll">
+                    動きを見る力が、指導を変える。<br>
+                    評価できるから、修正できる。<br>
+                    再評価できるから、結果に再現性が生まれる。
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. 参加対象者 -->
+        <section>
+            <div class="container">
+                <h2 class="text-center reveal-on-scroll">このような方におすすめです</h2>
+                <div class="target-list reveal-on-scroll">
+                    <ul>
+                        <li class="reveal-child">パーソナルトレーナーとして現場指導をしている方</li>
+                        <li class="reveal-child">肩甲帯、上肢、胸郭の評価力を高めたい方</li>
+                        <li class="reveal-child">修正エクササイズの選択に根拠を持ちたい方</li>
+                        <li class="reveal-child">ボディメイク指導に機能改善の視点を入れたい方</li>
+                        <li class="reveal-child">クライアントの動作変化を再現性高く出したい方</li>
+                        <li class="reveal-child">解剖学や運動学を、現場で使える形に落とし込みたい方</li>
+                    </ul>
+                </div>
+                <p class="target-note reveal-on-scroll">
+                    <strong>補足:</strong> ただ種目を大量に知りたい方よりも、<br>評価から修正までの考え方を学びたい方におすすめです。
+                </p>
+            </div>
+        </section>
+
+        <!-- 11. 開催概要 -->
+        <section id="details">
+            <div class="container">
+                <div class="details-card reveal-on-scroll">
+                    <h2>開催概要</h2>
+                    <dl class="details-grid">
+                        <dt>セミナー名</dt>
+                        <dd>コレクティブエクササイズの新常識<br>肩甲帯・上肢編</dd>
+                        
+                        <dt>日時</dt>
+                        <dd>8月1日（土）14:00〜18:00</dd>
+                        
+                        <dt>会場</dt>
+                        <dd>コネクトジム鶴舞店</dd>
+                        
+                        <dt>所要時間</dt>
+                        <dd>4時間</dd>
+                        
+                        <dt>講師</dt>
+                        <dd>吉田憲治 先生 (パーソナルトレーニングジムNIM代表)</dd>
+                        
+                        <dt>価格</dt>
+                        <dd>
+                            <div class="price">
+                                <span class="early">早割 11,000円 (税込)</span><br>
+                                <span class="note">※7月15日まで</span><br>
+                                <span class="normal">通常価格 16,500円 (税込)</span>
+                            </div>
+                        </dd>
+                    </dl>
+                    <div class="cta-button-container">
+                        <a href="#" class="cta-button early-bird">早割で申し込む (7/15まで)</a>
+                        <a href="#" class="cta-button">通常価格で申し込む</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. 最終CTA -->
+        <section class="final-cta">
+            <div class="container text-center">
+                <h2 class="reveal-on-scroll">評価から処方までを繋げ、<br>指導の質を新たなレベルへ。</h2>
+                <p class="reveal-on-scroll">バイオメカニクスに基づいた評価と、段階的な修正プロトコルを学ぶ4時間。<br>クライアントの身体を、より機能的で美しい状態へと導くための実践力を、この機会に手に入れましょう。</p>
+                <div class="cta-button-container reveal-on-scroll">
+                    <a href="https://connect-gym.jp/seminar-form/" class="cta-button early-bird" style="padding: 20px 60px; font-size: 1.5rem;" target="_blank" rel="noopener noreferrer">今すぐ詳細を確認して申し込む</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; background-color: #000;">
+        <p style="margin:0; color: var(--color-slate);">&copy; 2026 Connect Gym. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        
+                        const children = entry.target.querySelectorAll('.reveal-child');
+                        children.forEach((child, index) => {
+                            child.style.transitionDelay = `${index * 100}ms`;
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>
