@@ -696,32 +696,6 @@
             document.querySelectorAll('.reveal-on-scroll').forEach(element => {
                 observer.observe(element);
             });
-
-            // Function to detect Instagram in-app browser
-            function isInstagramInAppBrowser() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                return /Instagram/i.test(userAgent);
-            }
-
-            // Handle CTA clicks
-            const ctaButtons = document.querySelectorAll('.cta-button, .nav-cta');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    if (isInstagramInAppBrowser()) {
-                        const url = this.href;
-                        if (url) {
-                            // Try to open in a new window/tab
-                            const newWindow = window.open(url, '_blank');
-                            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                                // If window.open is blocked, try redirecting the current page
-                                window.location.href = url;
-                            } else {
-                                e.preventDefault(); // Prevent default if new window opened successfully
-                            }
-                        }
-                    }
-                });
-            });
         });
     </script>
 
