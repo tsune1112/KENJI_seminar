@@ -695,6 +695,26 @@
             document.querySelectorAll('.reveal-on-scroll').forEach(element => {
                 observer.observe(element);
             });
+
+            // Function to detect Instagram in-app browser
+            function isInstagramInAppBrowser() {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                return /Instagram/i.test(userAgent);
+            }
+
+            // Handle CTA clicks
+            const ctaButtons = document.querySelectorAll('.cta-button, .nav-cta');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if (isInstagramInAppBrowser()) {
+                        e.preventDefault(); // Prevent default link behavior
+                        const url = this.href;
+                        if (url) {
+                            window.open(url, '_system'); // Try to open in external browser
+                        }
+                    }
+                });
+            });
         });
     </script>
 
