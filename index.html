@@ -722,36 +722,6 @@
                     }
                 });
             });
-
-            // Handle early bird pricing and text change
-            const today = new Date();
-            const earlyBirdEndDate = new Date('2026-07-15T23:59:59'); // July 15, 2026, 23:59:59
-
-            if (today > earlyBirdEndDate) {
-                // Change button text
-                const earlyBirdButton = document.querySelector('.cta-button.early-bird');
-                if (earlyBirdButton) {
-                    earlyBirdButton.textContent = '通常価格でセミナーに申し込む';
-                }
-
-                // Adjust price display
-                const earlyPriceSpan = document.querySelector('.price .early');
-                const noteSpan = document.querySelector('.price .note');
-                const normalPriceSpan = document.querySelector('.price .normal');
-
-                if (earlyPriceSpan) {
-                    earlyPriceSpan.style.display = 'none';
-                }
-                if (noteSpan) {
-                    noteSpan.style.display = 'none';
-                }
-                if (normalPriceSpan) {
-                    normalPriceSpan.style.textDecoration = 'none'; // Remove line-through
-                    normalPriceSpan.style.fontSize = '1.8rem'; // Make it prominent
-                    normalPriceSpan.style.color = '#d4af37'; // Match gold color
-                    normalPriceSpan.style.fontWeight = '700';
-                }
-            }
         });
     </script>
 
